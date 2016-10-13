@@ -6,42 +6,22 @@
 	</head>
 	<body>
 		<section>
-			<hr />
-			<h2>First Stage Brainstorm</h2>
-				<h3>What to Keep in Mind</h3>
-					<ul>
-						<li>UX and UI Design</li>
-							<ul>
-								<li> Use Case</li>
-								<li> Persona</li>
-								<li>Site Map</li>
-							</ul>
-						<li>Data Design</li>
-							<ul>
-								<li>TBD, finish Use Case First</li>
-							</ul>
-					</ul>
-		</section>
-		<section>
-			<hr />
-			<h2>Second Stage Brainstorm</h2>
 			<h3>UX and UI Design</h3>
+			<strong>Because Reddit is so diverse in users/subjects, I will devolve into one subreddit: r/nfl</strong>
 			<ul>
 				<li>Persona for r/NFL</li>
 					<ul>
-						<li><strong>Because Reddit is so diverse in users/subjects, I will devolve into one subreddit: r/nfl</strong></li>
 						<li>James Rustles, 25</li>
 						<li>Most likely conservative with preferance with color scheme/design</li>
-						<li>James who wants to go /r/nfl for 3 things:</li>
+						<li>James wants to go /r/nfl for 3 things:</li>
 							<ul>
-								<li><strong>NFL or Top Draft Prospect Related News</strong></li>
-								<li><strong>real time discussing during games</strong></li>
+								<li>NFL or Top Draft Prospect Related News</li>
+								<li>real time discussing during games</li>
 								<li>Other people's takes/ humor/ general discussion of football</li>
 							</ul>
-						<li>James is an office clerk at Manning&Brady Associates, he's pretty low level but his company pays
-						good money and he is still young with a decent work ethic </li>
+						<li>James is an office clerk at Manning&Brady Associates</li>
 						<li>James owns a 64 inch 4k telivision that he has hunkered down in his living room. He also has a dell inspiron that he uses as to surf the primarily. He has another laptop at his office his company provided him</li>
-						<li>James doesnt have to deal with two much stress at work, however his girlfriend stresses him because she feels like he is "distant" and "doesnt spend enough time with her" James is annoyed </li>
+						<li>James doesnt have to deal with too much stress at work, however his girlfriend stresses him because she feels like he is "distant" and "doesnt spend enough time with her" James is annoyed </li>
 						<li>James typically posts on r/nfl when he is: watching a football game commenting on the most recent plays that have just happened with others watching it, during lunch at work, or trying to relax and have some alone time</li>
 						<li>James loves r/nfl when the posts contain comments that feature a well thought and well written perspective. </li>
 						<li>James knows how the game of football is played and all the rules, he knows most of the best players on each team</li>
@@ -50,21 +30,11 @@
 						    to talk a lot of football related smack on r/nfl.
 						</li>
 						<li>James likes to speculate on r/nfl about the state of his current team, the Rams and comment on hot topics about teams in the NFL. He also likes to make fun of
-							 Seahawks, Jags, and 49er fans. He also makes homored jokes about whatever subject users are currently talking about, which can be a wide breath of subjects, often
+							 Seahawks, Jags, and 49er fans. He also makes humored jokes about whatever subject users are currently talking about, which can be a wide breath of subjects, often
 							 not about football at all
 						</li>
 					</ul>
 				<li> Use Case</li>
-
-					<ul>
-						<li>James just got home from work and has nothing important to do for the rest of the day. He is also just saw a funny youtube video on facebook and is in the mood
-							 to make dumb jokes and mess with people. Rather than do something productive, James decides to "shitpost" on r/nfl, making Colin Kaepernick and Blaine Gabbert related
-							 reddit "inside-jokes" on a Gamethread that doesnt even feature the 49ers. People are annoyed by James's unoriginal comments and decide to downvote and comment about how
-							 his comments are not funny anymore after the 200th time and unwanted in the thread. James, in a desperate attempt to save his karma decides to then comment about how there
-							 are many new users on r/nfl who have yet to hear his lame jokes, and that they are related to the thread because the Bills are playing them next week. After more downvotes,
-							 James is frustrated and decides to throw nasty insults at other users, and has given up all hope on saving his precious, valuable reddit karma.</li>
-					</ul>
-
 					<ol>
 						<li>Type in reddit.com/r/nfl</li>
 						<li>Scrolls Posts</li>
@@ -87,14 +57,25 @@
 									</ol>
 							</ul>
 					</ol>
+
+				<ul>
+					<li>James just got home from work and has nothing important to do for the rest of the day. He is also just saw a funny youtube video on facebook and is in the mood
+						to make dumb jokes and mess with people. Rather than do something productive, James decides to "shitpost" on r/nfl, making Colin Kaepernick and Blaine Gabbert related
+						reddit "inside-jokes" on a Gamethread that doesnt even feature the 49ers. People are annoyed by James's unoriginal comments and decide to downvote and comment about how
+						his comments are not funny anymore after the 200th time and unwanted in the thread. James, in a desperate attempt to save his karma decides to then comment about how there
+						are many new users on r/nfl who have yet to hear his lame jokes, and that they are related to the thread because the Bills are playing them next week. After more downvotes,
+						James is frustrated and decides to throw nasty insults at other users, and has given up all hope on saving his precious, valuable reddit karma.</li>
+				</ul>
 			</ul>
 
 			<h3>Data Design</h3>
 			<ul>
 				<li>Entities</li>
-					<ul><strong>
+					<ul>
 						<li>Post</li>
 						<li>Comment</li>
+						<li>upvote/downvote</li>
+						<p><strong>Attributes</strong></p>
 							<ul>
 								<li>username</li>
 								<li>Team Icon</li>
@@ -104,33 +85,13 @@
 								<li>parent comment</li>
 								<li>text</li>
 							</ul>
-						<li>upvote/downvote</li>
-							<ul>
-								<li>For comments and posts</li>
-							</ul>
-					</strong></ul>
+					</ul>
 			</ul>
 		</section>
 
 		<section>
-			<hr />
-			<h2>Third Stage Brainstorm</h2>
-			<h3>Overview</h3>
-			<p>I need to be able to design a site that applies to first normal form, and will be optimized to 2nd and 3rd later</p>
-			<ul>
-				<li><strong>First Normal Form</strong></li>
-				<ul>
-					<li>The table is two dimensional with rows and columns</li>
-					<li>Each row contains data that pertains to some thing or portion of a thing</li>
-					<li>Each cell of the table must have onlhy a single value</li>
-					<li>Each column must have a unique name</li>
-					<li>No two rows may be identical</li>
-					<li>The order of the columns and the order of the rows are not significant</li>
-				</ul>
 
-				<li><strong>I also need to think of a good way to match reply comments to the original comment</strong></li>
-			</ul>
-
+			<p>Brainstorming for SQL tables:</p>
 			<table>
 				<tr>
 					<th> User</th>
