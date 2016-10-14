@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<!--
+@Author: Daniel Eaton
+@Date: October 13, 2016
+@Purpose: To brainstorm and outline of who this subreddit/site is made for, what it is being made to do, how a user will use it, and a scenario of what will happen when in use
+@Revision: 1.3
+-->
+
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -8,18 +15,14 @@
 		<section>
 			<h3>UX and UI Design</h3>
 			<ul>
-				<li>Persona for r/NFL</li>
+				<!--    Beginning of Persona Begins Here  ----------------------->
+
+				<li><strong>Persona for r/NFL</strong></li>
 					<ul>
 						<li>James Rustles, 25</li>
 						<li>Most likely conservative with preferance with color scheme/design</li>
-						<li>James wants to go /r/nfl for 3 things:</li>
-							<ul>
-								<li>NFL or Top Draft Prospect Related News</li>
-								<li>real time discussing during games</li>
-								<li>Other people's takes/ humor/ general discussion of football</li>
-							</ul>
 						<li>James is an office clerk at Manning&Brady Associates</li>
-						<li>James owns a 64 inch 4k telivision that he has hunkered down in his living room. He also has a dell inspiron that he uses as to surf the web primarily. He has another laptop at his office his company provided him</li>
+						<li>James owns a 64 inch 4k television that he has hunkered down in his living room. He also has a dell inspiron that he uses as to surf the web primarily. He has another laptop at his office his company provided him</li>
 						<li>James doesnt have to deal with too much stress at work, however his girlfriend stresses him because she feels like he is "distant" and "doesnt spend enough time with her" James is annoyed </li>
 						<li>James typically posts on r/nfl when he is: watching a football game commenting on the most recent plays that have just happened with others watching it, during lunch at work, or trying to relax and have some alone time</li>
 						<li>James loves r/nfl when the posts contain comments that feature a well thought and well written perspective. </li>
@@ -33,12 +36,14 @@
 							 not about football at all
 						</li>
 					</ul>
-				<li> Use Case</li>
+
+				<!---     Beginning of Interaction Flow Begins Here -------------------->
+				<li><strong>Interaction Flow</strong></li>
 					<ol>
 						<li>Type in reddit.com/r/nfl</li>
 						<li>Scrolls Posts</li>
 						<li>Sees am Interesting Article/Thread</li>
-						<li>(HOPEFULLY) Goes and reads Article, sees (or has seena and remembers video if reposts), or is watching game if Current Game Thread</li>
+						<li>(HOPEFULLY) Goes and reads Article, sees (or has seen and remembers video if reposts), or is watching game if Current Game Thread</li>
 						<li>Goes To Interesting Thread</li>
 							<ul>
 								<li>Sees relevent comments at the top which have already been posted and upvoted heavily</li>
@@ -54,56 +59,97 @@
 							</ul>
 					</ol>
 
+				<!-- Beginning of Use Case goes here ------------------->
+				<li><strong>Use Case</strong></li>
+					<ul>
+						<li>James wants to go /r/nfl for 3 things:</li>
+						<ul>
+							<li>NFL or Top Draft Prospect Related News</li>
+							<li>real time discussing during games</li>
+							<li>Other people's takes/ humor/ general discussion of football</li>
+						</ul>
+						<li>James just got home from work and has nothing important to do for the rest of the day. He is also just saw a funny youtube video on facebook and is in the mood
+							 to make dumb jokes and mess with people. Rather than do something productive, James decides to "shitpost" on r/nfl, making Colin Kaepernick and Blaine Gabbert related
+							reddit "inside-jokes" on a Gamethread that doesnt even feature the 49ers. People are annoyed by James's unoriginal comments and decide to downvote and comment about how
+							his comments are not funny anymore after the 200th time and unwanted in the thread. James, in a desperate attempt to save his karma decides to then comment about how there
+							are many new users on r/nfl who have yet to hear his lame jokes, and that they are related to the thread because the Bills are playing them next week. After more downvotes,
+							James is frustrated and decides to throw nasty insults at other users, and has given up all hope on saving his precious, valuable reddit karma. James leaves Reddit, angry and annoyed
+						   that nobody liked his lame and overused jokes. He closed his laptop screen a bit too hard in the process, and may need to even take his laptop to a computer repair store and get price gouged</li>
+					</ul>
 			</ul>
 		</section>
 
 		<section>
 			<h2>Data Design</h2>
+			<!-- Conceptual Model Begins Here -->
 			<h3>Conceptual Model</h3>
+
+			<!-- Entity 1: Profile, the first entity, begins here
+			@profileName, unique and can also act as a primary key but have chosen not to because I believe userID will be more efficient-
+			@profileTeam, A user can choose their favorite team in r/nfl, this is for the purpose of user flair.
+			@Email- Just to have in case a user forgets their password and wants to reset
+			@FirstName- Just for signup, thinking about deleting this because reddit is supposed to be anonymous, or at least pseudo-anonymous
+			@LastName- Just for signup, thinking about deleting this because reddit is supposed to be anonymous, or at least pseudo-anonymous
+			@profileID- Primary Key that will used for searching and will be auto incrementing
+			-->
 
 			<table>
 				<tr>
-					<th> User</th>
+					<th>Entity 1: Profile</th>
 				</tr>
 				<tr>
-					<td> Username (UNIQUE)</td>
+					<td> profileName (UNIQUE)</td>
 				</tr>
 				<tr>
-					<td>Favorite Team (for purpose of user flair)</td>
+					<td> profileTeam(see comments for more info)</td>
 				</tr>
 				<tr>
-					<td>User ID(PRIMARY KEY)</td>
+					<td> profileID(PRIMARY KEY, AUTO INCREMENT:)</td>
 				</tr>
 				<tr>
-					<td>Email</td>
+					<td> profileEmail</td>
+				</tr>
+				<tr>
+					<td>profileFirstName</td>
+				</tr>
+				<tr>
+					<td>profileLastName</td>
 				</tr>
 
 			</table>
 
+			<!-- Entity 2: Comment begins here
+			@Comment- will be incrementally increased Primary Key
+			@Parent Comment ID- Used to store ID of Comment that is being replied to
+			@Thread Level- The level of the comment chain the comment is in, will be used for styling purposes
+			@UserID- Foreign Key used to get the Username and Favorite Team (flair) from user
+			@Comment Text- The actual content of the comment
+			@Comment Time- The time the comment was posted at
+			-->
 			<table>
 				<tr>
-					<th> Comment </th>
+					<th> Entity 2: Comment </th>
 				</tr>
 				<tr>
-					<td>Comment ID (KEY)</td>
+					<td>commentId (PRIMARY KEY, AUTO_INCREMENT)</td>
 				</tr>
 				<tr>
-					<td>Parent Comment ID</td>
+					<td>commentParentId (FOREIGN KEY to a different Comment)</td>
 				</tr>
 				<tr>
-					<td>Thread Level (Probably wont be not be necessary but keeping it in for primary purpose)</td>
+					<td>commentThreadLevel(Probably wont be not be necessary but keeping it in for brainstorming purpose)</td>
 				</tr>
 				<tr>
-					<td>User ID (FOREIGN KEY)</td>
+					<td>commentProfileId(FOREIGN KEY to Profile)</td>
 				</tr>
 				<tr>
-					<td>Text of comment</td>
+					<td>commentTime</td>
 				</tr>
 				<tr>
-					<td>Reply Comment ID's</td>
+					<td>commentText</td>
 				</tr>
 				<tr>
-					<td>Time of Comment</td>
+					<td>commentVoteScore(upvote vs downvote)</td>
 				</tr>
 			</table>
 
