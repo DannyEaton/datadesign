@@ -108,7 +108,9 @@ class Profile {
 			$userInput = filter_var($userInput, FILTER_SANITIZE_STRING);
 			if(Profile::validateProfileTeam($userInput)) {
 				$this->profileTeam = $userInput;
-				$this->pdoUpdate('profileTeam',$this->profileTeam);
+				if(!$this->profileId == null) {
+					$this->pdoUpdate('profileTeam', $this->profileTeam);
+				}
 			}
 			else {
 				$this->profileTeam = Profile::setProfileTeam($userInput);
@@ -140,7 +142,9 @@ class Profile {
 		}
 		try {
 			$this->profileUsername = filter_var($inputUsername, FILTER_SANITIZE_STRING);
-			$this->pdoUpdate('profileUsername',$this->profileUsername);
+			if($this->profileId == null){
+				$this->pdoUpdate('profileUsername', $this->profileUsername);
+			}
 		}
 		catch(Exception $e){
 			$e->getMessage();
@@ -194,7 +198,9 @@ class Profile {
 		}
 		try{
 		$this->profileFirstName = filter_var($inputFirstName);
-		$this->pdoUpdate('profileFirstName',$this->profileFirstName);
+		if(!$this->profileId==null){
+				$this->pdoUpdate('profileFirstName', $this->profileFirstName);
+			}
 		}catch(Exception $e){
 			$e->getMessage();
 		}
@@ -219,7 +225,9 @@ class Profile {
 		}
 		try{
 			$this->profileLastName = filter_var($inputLastName);
-			$this->pdoUpdate('profileLastName',$this->profileLastName);
+			if(!$this->profileId==null) {
+				$this->pdoUpdate('profileLastName', $this->profileLastName);
+			}
 		}catch(Exception $e){
 			$e->getMessage();
 		}
@@ -248,7 +256,9 @@ class Profile {
 		try {
 			$userInputEmail = filter_var($userInputEmail, FILTER_SANITIZE_STRING);
 			$userInputEmail = filter_var($userInputEmail, FILTER_VALIDATE_EMAIL);
-			$this->pdoUpdate('profileEmail',$userInputEmail);
+			if(!$this->profileId==null) {
+				$this->pdoUpdate('profileEmail', $userInputEmail);
+			}
 		}catch(Exception $e){
 			throw(new Exception($e->getMessage()));
 		}
@@ -355,6 +365,8 @@ class Profile {
 	}
 
 	/**
+	 * The pdoUpdate() function will update values in the mysql database representing this object
+	 *
 	 * @param $updateSet string The profile row value that will be changed
 	 * @param $newValue string The value that will be changed in the changed profile row value
 	 * @throws PDOException if there is an error regarding the php data object
